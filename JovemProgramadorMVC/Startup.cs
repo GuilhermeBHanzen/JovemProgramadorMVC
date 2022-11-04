@@ -1,3 +1,4 @@
+using JovemProgramadorMVC.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,7 +24,14 @@ namespace JovemProgramadorMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<JovemProgramadorContexto>((serviceProvider, options) =>
+            {
+                options.UseSqlServer(Configuration.GetSection("ConnectionStrings")["StringConexao"].ToString());
+            });
+
             services.AddControllersWithViews();
+
+            //services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
