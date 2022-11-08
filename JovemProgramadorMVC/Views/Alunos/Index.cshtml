@@ -1,4 +1,6 @@
-﻿<div class="text-left ">
+﻿@model List<AlunoModel>
+
+<div class="text-left ">
     <div>
         <h1>Dados dos Alunos</h1>
     </div>
@@ -14,36 +16,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>24</td>
-                <td>(47) 99999-9999</td>
-                <td>bolinha123@gmail.com</td>
-                <td class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary" type="button">Endereço</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>jonas</td>
-                <td>29</td>
-                <td>(47) 99999-9999</td>
-                <td>espada123@gmail.com</td>
-                <td class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary" type="button">Endereço</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Hannah</td>
-                <td>16</td>
-                <td>(47) 99999-9999</td>
-                <td>hannahMarina@gmail.com</td>
-                <td class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-primary" type="button">Endereço</button>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (AlunoModel Aluno in Model)
+                {
+                    <tr>
+                        <td>@Aluno.Nome</td>
+                        <td>@Aluno.Idade</td>
+                        <td>@Aluno.Contato</td>
+                        <td>@Aluno.Email</td>
+                        <td>@Aluno.Cep</td>
+                        <td class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-primary" type="button">Endereço</button>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 

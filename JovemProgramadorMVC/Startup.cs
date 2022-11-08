@@ -1,4 +1,6 @@
 using JovemProgramadorMVC.Data;
+using JovemProgramadorMVC.Data.Repositorio;
+using JovemProgramadorMVC.Data.Repositorio.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,9 +31,10 @@ namespace JovemProgramadorMVC
                 options.UseSqlServer(Configuration.GetSection("ConnectionStrings")["StringConexao"].ToString());
             });
 
+            services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
+
             services.AddControllersWithViews();
 
-            //services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
