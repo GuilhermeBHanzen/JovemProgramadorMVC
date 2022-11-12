@@ -9,6 +9,7 @@ namespace JovemProgramadorMVC.Data.Repositorio
 {
     public class AlunoRepositorio : IAlunoRepositorio
     {
+
         private readonly JovemProgramadorContexto _jovemProgramadorContexto;
 
         public AlunoRepositorio(JovemProgramadorContexto jovemProgramadorContexto)
@@ -22,9 +23,24 @@ namespace JovemProgramadorMVC.Data.Repositorio
             _jovemProgramadorContexto.SaveChanges();
         }
 
-        public List<AlunoModel> BuscarAlunos();
-        
-
+        public List<AlunoModel> BuscarAlunos()
+        {
+            return _jovemProgramadorContexto.Aluno.ToList();
+        }
     }
-       
+
 }
+
+
+     
+    
+
+
+
+
+
+
+
+
+
+
