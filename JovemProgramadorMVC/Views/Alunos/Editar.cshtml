@@ -1,8 +1,8 @@
 ﻿@model AlunoModel
 
-<form asp-controller="Alunos" asp-action="InserirAluno" method="post">
+<form asp-controller="Alunos" asp-action="Editar" method="post">
 
-    <input type="hidden" asp-for="Id"/>
+    <input type="hidden" asp-for="Id" />
 
     <div class="col-7 mb-3">
         <label for="name" class="form-label">Nome</label>
@@ -25,9 +25,8 @@
         <input type="text" asp-for="Cep" placeholder="00000-000">
     </div>
     <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button">Adicionar</button>
+        <button class="btn btn-primary" type="button">Excluir</button>
         <button class="btn btn-primary" type="button">Voltar</button>
-        
     </div>
 
 </form>

@@ -1,6 +1,7 @@
 ﻿using JovemProgramadorMVC.Data.Repositorio.Interface;
 using JovemProgramadorMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,17 @@ namespace JovemProgramadorMVC.Controllers
     public class AlunosController : Controller
     {
         private readonly IAlunoRepositorio _alunoRepositorio;
-        public AlunosController(IAlunoRepositorio alunoRepositorio)
+        private readonly IConfiguration _configurarion;
+        public AlunosController(IAlunoRepositorio alunoRepositorio, IConfiguration configuration)
         {
             _alunoRepositorio = alunoRepositorio;
+            _configurarion = configuration;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var alunos = _alunoRepositorio.BuscarAlunos();
+            return View(alunos);
         }
 
         public IActionResult Adicionar()
@@ -31,6 +35,17 @@ namespace JovemProgramadorMVC.Controllers
             _alunoRepositorio.InserirAluno(alunos);
             return RedirectToAction("Index");
         }
+
+        public IActionResult Editar(int id)
+        {
+            var aluno = _alunoRepositorio.BuscarId(id);
+            return View(aluno);
+        }
+
+        
+        
+        
+
 
     }
 
