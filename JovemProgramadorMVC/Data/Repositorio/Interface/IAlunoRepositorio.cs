@@ -9,6 +9,7 @@ namespace JovemProgramadorMVC.Data.Repositorio.Interface
     public interface IAlunoRepositorio
     {
         void InserirAluno(AlunoModel alunos);
+        void EditarAluno(AlunoModel aluno);
         List<AlunoModel> BuscarAlunos();
         AlunoModel BuscarId(int id);
 
