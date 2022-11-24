@@ -1,33 +1,32 @@
 ﻿@model AlunoModel
 
 <form asp-controller="Alunos" asp-action="InserirAluno" method="post">
+    <div>
 
-    <input type="hidden" asp-for="Id"/>
+        <div class="col-7 mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" asp-for="Nome">
+        </div>
+        <div class="col-2 mb-3">
+            <label for="name" class="form-label">Idade</label>
+            <input type="text" asp-for="Idade">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="name" class="form-label">Contato</label>
+            <input type="text" asp-for="Contato" placeholder="(00) 00000-0000">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="name" class="form-label">Email</label>
+            <input type="text" asp-for="Email">
+        </div>
+        <div class="col-3 mb-3">
+            <label for="exampleFormControlInputCep" class="form-label">Cep</label>
+            <input type="text" asp-for="Cep" placeholder="00000-000">
+        </div>
+        <div class="d-grid gap-3 d-md-flex justify-content-md-center">
+            <button class="btn btn-primary" type="submit">Adicionar</button>
+            <button class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index">Voltar</button>
 
-    <div class="col-7 mb-3">
-        <label for="name" class="form-label">Nome</label>
-        <input type="text" asp-for="Nome">
+        </div>
     </div>
-    <div class="col-2 mb-3">
-        <label for="name" class="form-label">Idade</label>
-        <input type="text" asp-for="Idade">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="name" class="form-label">Contato</label>
-        <input type="text" asp-for="Contato" placeholder="(00) 00000-0000">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="name" class="form-label">Email</label>
-        <input type="text" asp-for="Email">
-    </div>
-    <div class="col-3 mb-3">
-        <label for="exampleFormControlInputCep" class="form-label">Cep</label>
-        <input type="text" asp-for="Cep" placeholder="00000-000">
-    </div>
-    <div class="d-grid gap-3 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="button">Adicionar</button>
-        <button class="btn btn-primary" type="button">Voltar</button>
-        
-    </div>
-
 </form>

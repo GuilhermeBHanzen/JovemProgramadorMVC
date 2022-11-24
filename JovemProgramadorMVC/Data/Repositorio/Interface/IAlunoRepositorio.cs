@@ -11,5 +11,6 @@ namespace JovemProgramadorMVC.Data.Repositorio.Interface
         void InserirAluno(AlunoModel alunos);
         List<AlunoModel> BuscarAlunos();
         AlunoModel BuscarId(int id);
+
     }
 }
