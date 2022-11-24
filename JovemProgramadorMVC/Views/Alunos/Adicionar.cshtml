@@ -3,29 +3,29 @@
 <form asp-controller="Alunos" asp-action="InserirAluno" method="post">
     <div>
 
-        <div class="col-7 mb-3">
+        <div class="mb-3">
             <label for="name" class="form-label">Nome</label>
-            <input type="text" asp-for="Nome">
+            <input type="text" asp-for="Nome" class="form-control col-md-4">
         </div>
-        <div class="col-2 mb-3">
+        <div class="mb-3">
             <label for="name" class="form-label">Idade</label>
-            <input type="text" asp-for="Idade">
+            <input type="text" asp-for="Idade" class="form-control col-md-1">
         </div>
-        <div class="col-3 mb-3">
+        <div class="mb-3">
             <label for="name" class="form-label">Contato</label>
-            <input type="text" asp-for="Contato" placeholder="(00) 00000-0000">
+            <input type="text" asp-for="Contato" class="form-control col-md-4" placeholder="(00) 00000-0000">
         </div>
-        <div class="col-3 mb-3">
+        <div class="mb-3">
             <label for="name" class="form-label">Email</label>
-            <input type="text" asp-for="Email">
+            <input type="text" asp-for="Email" class="form-control col-md-4">
         </div>
-        <div class="col-3 mb-3">
+        <div class="mb-3">
             <label for="exampleFormControlInputCep" class="form-label">Cep</label>
-            <input type="text" asp-for="Cep" placeholder="00000-000">
+            <input type="text" asp-for="Cep" class="form-control col-md-4" placeholder="00000-000">
         </div>
-        <div class="d-grid gap-3 d-md-flex justify-content-md-center">
+        <div class="text-center">
             <button class="btn btn-primary" type="submit">Adicionar</button>
-            <button class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index">Voltar</button>
+            <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index">Voltar</a>
 
         </div>
     </div>

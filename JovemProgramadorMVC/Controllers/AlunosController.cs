@@ -38,12 +38,23 @@ namespace JovemProgramadorMVC.Controllers
             return View(aluno);
         }
 
+        public IActionResult Excluir(int id)
+        {
+            var aluno = _alunoRepositorio.BuscarId(id);
+            return View(aluno);
+        }
+
+        public IActionResult ExcluirAluno(AlunoModel alunos)
+        {
+            _alunoRepositorio.ExcluirAluno(alunos);
+            return RedirectToAction("Index");
+        }
+
         public IActionResult InserirAluno(AlunoModel alunos)
         {
             _alunoRepositorio.InserirAluno(alunos);
             return RedirectToAction("Index");
         }
-
 
         public IActionResult AlterarAluno(AlunoModel aluno)
         {

@@ -7,7 +7,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                
                 <th scope="col">Nome</th>
                 <th scope="col">Idade</th>
                 <th scope="col">Contato</th>
@@ -27,9 +27,9 @@
                         <td>@Aluno.Email</td>
                         <td>@Aluno.Cep</td>
                         <td class="d-grid gap-2 d-md-block">
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@Aluno.Cep">Endereço</a>
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir" asp-route-id="@Aluno.Id">Excluir</a>
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@Aluno.Id">Editar</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Alunos" asp-action="BuscarEndereco" asp-route-cep="@Aluno.Cep">Endereço</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Alunos" asp-action="ExcluirAluno" asp-route-id="@Aluno.Id">Excluir</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Alunos" asp-action="Editar" asp-route-id="@Aluno.Id">Editar</a>
 
                         </td>
                     </tr>
