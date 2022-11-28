@@ -2,7 +2,7 @@
 using JovemProgramadorMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -23,8 +23,17 @@ namespace JovemProgramadorMVC.Controllers
 
         public IActionResult Index()
         {
-            var alunos = _alunoRepositorio.BuscarAlunos();
-            return View(alunos);
+            try
+            {
+                var alunos = _alunoRepositorio.BuscarAlunos();
+                return View(alunos);
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro ao buscar dados do banco";
+                return View();
+            }
+            
         }
 
         public IActionResult Adicionar()
@@ -34,34 +43,79 @@ namespace JovemProgramadorMVC.Controllers
 
         public IActionResult Editar(int id)
         {
-            var aluno = _alunoRepositorio.BuscarId(id);
-            return View(aluno);
+            try
+            {
+                var aluno = _alunoRepositorio.BuscarId(id);
+                return View(aluno);
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro ao buscar dados do banco";
+                throw;
+            }
+            
         }
 
         public IActionResult Excluir(int id)
         {
-            var aluno = _alunoRepositorio.BuscarId(id);
-            return View(aluno);
+            try
+            {
+                var aluno = _alunoRepositorio.BuscarId(id);
+                return View(aluno);
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro ao obter dados do banco";
+                throw;
+            }
+
         }
 
         public IActionResult ExcluirAluno(AlunoModel alunos)
         {
-            _alunoRepositorio.ExcluirAluno(alunos);
-            return RedirectToAction("Index");
+            try
+            {
+                _alunoRepositorio.ExcluirAluno(alunos);
+                TempData["MensagemSucessoExcluir"] = "Aluno excluído";
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro na conexão com o banco de dados";
+                throw;
+            }
         }
 
         public IActionResult InserirAluno(AlunoModel alunos)
         {
-            _alunoRepositorio.InserirAluno(alunos);
-            return RedirectToAction("Index");
+            try
+            {
+                _alunoRepositorio.InserirAluno(alunos);
+                TempData["MensagemSucesso"] = "Aluno adicionado";
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro na conexão com o banco de dados";
+                throw;
+            }
         }
 
-        public IActionResult AlterarAluno(AlunoModel aluno)
+        public IActionResult AlterarAluno(AlunoModel alunos)
         {
-            _alunoRepositorio.EditarAluno(aluno);
-            return RedirectToAction("Index");
+            try
+            {
+                _alunoRepositorio.EditarAluno(alunos);
+                TempData["MensagemSucessoEditar"] = "Aluno editado";
+                return RedirectToAction("Index");
+            }
+            catch (System.Exception)
+            {
+                TempData["MensagemErro"] = "Erro na conexão com o banco de dados";
+                throw;
+            }
         }
-            
+
         public async Task<IActionResult> BuscarEndereco(string cep)
         {
             cep = cep.Replace("-", "");
